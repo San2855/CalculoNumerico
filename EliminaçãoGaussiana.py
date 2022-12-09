@@ -1,3 +1,4 @@
+# Esaa funçao faz o escalonamento
 def Gauss(A, b):
   n= len(b)
   for k in range(0, n-1):
@@ -8,19 +9,32 @@ def Gauss(A, b):
         b[i]= b[i]-m*b[k]
     return A, b
 
+# Esaa funçao faz a substituição reversa
 def solucao(A,b):
-  n= len(b)
-  x= n*[0]
-  x[n-1] = b[n-1]/A[n-1][n-1]
-  for k in range(n-2, -1, -1):
-    s = 0
-    for j in range(k+1,n):
-      s= s+ A[k][j]*x[j]
-    x[k]= (b[k]-s)/A[k][k]  
-  return x 
-    
-A= [[3,2,4],[1,1,2],[4,3,-2]]
-b= [1,2,3]
-A_t, b_t = Gauss(A,b)
+   n= len(b)
+   x= n*[0]
+   x[n-1] = b[n-1]/A[n-1][n-1]
+   for k in range(n-2, -1, -1):
+     s = 0
+     for j in range(k+1,n):
+       s= s+ A[k][j]*x[j]
+     x[k]= (b[k]-s)/A[k][k]  
+   return x 
+
+# Esaa funçao soma os elementos da linha
+def VetorB(A):
+  lista=[]
+  for i in range(len(A)):
+        soma = 0
+        for j in range(len(A[i])):
+            soma += A[i][j]
+        lista.append(soma)
+  return lista
+
+# Essa função constroi uma matriz de hilbert
+def hilmat(a, z):
+    return [[1 / (i + j + 1) for j in range(z)] for i in range(a)]
+
+A= hilmat(3,3)
+b= VetorB(A)
 print(Gauss(A,b))
-print(solucao(A_t,b_t))
