@@ -12,5 +12,5 @@ def VetorB(A):
 def hilmat(a, z):
     return [[1 / (i + j + 1) for j in range(z)] for i in range(a)]
 
-A= hilmat(3,3)
+A= [[3,2,4],[1,1,2],[4,3,-2]]
 VetorB(A)

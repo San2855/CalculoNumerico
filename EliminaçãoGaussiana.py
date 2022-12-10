@@ -1,15 +1,25 @@
-# Esaa funçao faz o escalonamento
+# Essa funçao soma os elementos da linha
+def VetorB(A):
+  lista=[]
+  for i in range(len(A)):
+        soma = 0
+        for j in range(len(A[i])):
+            soma += A[i][j]
+        lista.append(soma)
+  return lista
+
+# Essa funçao faz o escalonamento
 def Gauss(A, b):
   n= len(b)
   for k in range(0, n-1):
-    for i in range(k+1, n):
-        m= A[i][k]/A[k][k]
-        for j in range(k,n):
-          A[i][j]= A[i][j]-m*A[k][j]
-        b[i]= b[i]-m*b[k]
-    return A, b
+      for i in range(k+1, n):
+          m= A[i][k]/A[k][k]
+          for j in range(k,n):
+            A[i][j]= A[i][j]-m*A[k][j]
+          b[i]= b[i]-m*b[k]
+  return A, b
 
-# Esaa funçao faz a substituição reversa
+# Essa funçao faz a substituição reversa
 def solucao(A,b):
    n= len(b)
    x= n*[0]
@@ -20,21 +30,16 @@ def solucao(A,b):
        s= s+ A[k][j]*x[j]
      x[k]= (b[k]-s)/A[k][k]  
    return x 
-
-# Esaa funçao soma os elementos da linha
-def VetorB(A):
-  lista=[]
-  for i in range(len(A)):
-        soma = 0
-        for j in range(len(A[i])):
-            soma += A[i][j]
-        lista.append(soma)
-  return lista
-
-# Essa função constroi uma matriz de hilbert
+   
+# Essa função constroi uma matriz de hilbert com os parametros que você escolher
 def hilmat(a, z):
-    return [[1 / (i + j + 1) for j in range(z)] for i in range(a)]
+    if a == z:
+      return [[1 / (i + j + 1) for j in range(z)] for i in range(a)]
+    else:
+      print("Essa forma de matriz não é valida")
 
 A= hilmat(3,3)
 b= VetorB(A)
 print(Gauss(A,b))
+print(solucao(A,b))
+
