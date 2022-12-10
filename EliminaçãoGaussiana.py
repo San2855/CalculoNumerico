@@ -44,4 +44,7 @@ z = int(input("insira o número de colunas da sua matriz: "))
 A = hilmat(a, z)
 b = VetorB(A)
 print(Gauss(A, b))
+print(20*"-")
 print(solucao(A, b))
+print(20*"-")
+
