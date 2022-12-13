@@ -32,19 +32,16 @@ def solucao(A, b):
    return x
 
 # Essa função constroi uma matriz de hilbert com os parametros que você escolher
-def hilmat(a, z):
-    if a == z:
-      return [[1 / (i + j + 1) for j in range(z)] for i in range(a)]
-    else:
-      print("Essa forma de matriz não é valida")
+def hilmat(n):
+      return [[1 / (i + j + 1) for j in range(n)] for i in range(n)]
 
 # Execução do código
-a = int(input("insira o número de linhas da sua matriz: "))
-z = int(input("insira o número de colunas da sua matriz: "))
-A = hilmat(a, z)
+n = int(input("insira o tamanho da sua matriz: "))
+A = hilmat(n)
 b = VetorB(A)
-print(Gauss(A, b))
+A_t, b_t = Gauss(A, b)
+print(A_t, b_t)
 print(20*"-")
-print(solucao(A, b))
+print(solucao(A_t, b_t))
 print(20*"-")
 
