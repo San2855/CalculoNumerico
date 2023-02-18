@@ -1,4 +1,4 @@
-
+#Essa função calcula o valor de um polinômio para um determinado valor de x, dado seus coeficientes armazenados em uma lista.
 def p(x, a):
   r = 0
   n = len(a)
@@ -6,7 +6,7 @@ def p(x, a):
     r += a[i] * (x**i)
     return r
 
-
+#Essa função resolve um sistema linear por meio do método de eliminação de Gauss. Recebe como parâmetros a matriz A dos coeficientes do sistema e o vetor b de soluções. Retorna as matrizes A e b após o processo de eliminação.
 def Gauss(A, b):
   n = len(b)
   for k in range(0, n-1):
@@ -17,7 +17,7 @@ def Gauss(A, b):
         b[i] = b[i]-m*b[k]
     return A, b
 
-
+#Essa função resolve um sistema linear por meio do método de substituição inversa. Recebe como parâmetros as matrizes A e b do sistema já transformadas pela função Gauss. Retorna o vetor x com as soluções do sistema.
 def solucao(A, b):
    n = len(b)
    x = n*[0]
@@ -29,7 +29,7 @@ def solucao(A, b):
      x[k] = (b[k]-s)/A[k][k]
    return x
 
-
+#Essa função retorna a matriz de Vandermonde para um conjunto de pontos x, que é utilizada para ajustar um polinômio aos pontos.
 def vandermonde_matrix(x):
     n = len(x)
     V = []
@@ -38,9 +38,9 @@ def vandermonde_matrix(x):
         for j in range(n):
             row.append(x[i]**j)
         V.append(row)
-    return V
+    return V 
   
-
+#Nesse trecho, são definidos os conjuntos de pontos para os quais serão ajustados polinômios. Em seguida, as matrizes de Vandermonde são criadas para cada conjunto
 x = [30, 35, 40]
 y = [0.99826, 0.99818, 0.99828]
 
