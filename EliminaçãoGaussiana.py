@@ -36,9 +36,9 @@ def hilmat(n):
       return [[1 / (i + j + 1) for j in range(n)] for i in range(n)]
 
 # Execução do código
-n = int(input("insira o tamanho da sua matriz: "))
-A = hilmat(n)
-b = VetorB(A)
+#n = int(input("insira o tamanho da sua matriz: "))
+A = [[28, -15], [-20, 29]]
+b = [0, 2560]
 A_t, b_t = Gauss(A, b)
 print(A_t, b_t)
 print(20*"-")
